@@ -1,0 +1,10 @@
+<div *ngIf="data | async as posts">
+  <div *ngFor="let post of posts">
+    <section>id: {{ post.id }}</section>
+    <section>link: {{ post.link }}</section>
+    <section>slug: {{ post.slug }}</section>
+    <section>title: {{ post.title.rendered }}</section>
+  </div>
+
+  <!-- {{ posts | json }} -->
+</div>
