@@ -1,3 +1,26 @@
+.toolbar {
+  height: 60px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo:hover {
+  opacity: 0.8;
+}
+
 .menu-links {
   display: inline-block;
   margin-left: 1rem;
@@ -9,4 +32,13 @@
       color: white;
     }
   }
+}
+
+.content {
+  display: flex;
+  margin: 2em auto;
+  padding: 0 2em;
+  max-width: 90%;
+  flex-direction: column;
+  align-items: center;
 }

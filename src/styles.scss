@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+// @import "~font-awesome/css/font-awesome.min.css";
+
+.sticky {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+}
+
+#masthead.site-header.sticky {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+}
+
+#masthead {
+  padding: 10px 16px;
+  background: #555;
+  color: #fdfdfd;
+}
+
+#masthead + .content {
+  background-color: purple;
+}
+
+div.right {
+  float: right !important ;
+  clear: both;
+}

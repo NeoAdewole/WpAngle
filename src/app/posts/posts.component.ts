@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from '../post.service';
-import { Observable } from 'rxjs';
-import { Post } from '../model/post';
+import { Component, OnInit } from "@angular/core";
+import { PostService } from "../post.service";
+import { Observable } from "rxjs";
+import { Post } from "../model/post";
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: "app-posts",
+  templateUrl: "./posts.component.html",
+  styleUrls: ["./posts.component.scss"]
 })
 export class PostsComponent implements OnInit {
   data: Observable<Post[]>;
@@ -21,5 +21,6 @@ export class PostsComponent implements OnInit {
   // }
   ngOnInit() {
     this.data = this.postService.getPosts();
+    console.log(this.data);
   }
 }
