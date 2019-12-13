@@ -1,13 +1,19 @@
-import { WpContent } from "./wp-content";
+import { WpContent } from './wp-content';
+import { SanitizeHtmlPipe } from '../pipes/sanitize-html';
 
 export class Post {
-  id: number;
-  link: string;
-  slug: string;
-  title: WpContent;
-  excerpt: WpContent;
-  content: WpContent;
-  featuredImageSrc: string;
-  authorName: string;
-  author: WpContent;
+    constructor(private sanitizeHtml: SanitizeHtmlPipe) {}
+    id: number;
+    link: string;
+    slug: string;
+    title: WpContent;
+    excerpt: WpContent;
+    content: WpContent;
+    featured_image_src: string;
+    authorName: string;
+    author: WpContent;
+    get safeContent() {
+        console.log(this.content.rendered);
+        return this.sanitizeHtml.transform(this.content.rendered);
+    }
 }
