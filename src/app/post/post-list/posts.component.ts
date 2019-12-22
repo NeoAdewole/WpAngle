@@ -18,7 +18,6 @@ export class PostsComponent implements OnInit {
         this.postService.getPosts().subscribe({
             next: posts => {
                 this.posts = posts;
-                console.log(this.posts);
             },
             error: errorMessage => {
                 this.errMsg = errorMessage;

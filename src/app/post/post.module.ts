@@ -8,6 +8,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
     declarations: [PostComponent, PostsComponent, SanitizeHtmlPipe],
     imports: [CommonModule, RouterModule],
-    providers: []
+    providers: [SanitizeHtmlPipe]
 })
 export class PostModule {}

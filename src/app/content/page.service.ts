@@ -1,36 +1,31 @@
 import { Injectable } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { filter, map, catchError, tap } from 'rxjs/operators';
-import { Post } from './model/post';
 import { Observable, throwError } from 'rxjs';
+import { Page } from '../model/page';
 
 @Injectable({
     providedIn: 'root'
 })
-export class PostService {
+export class PageService {
     baseUrl;
     constructor(private http: HttpClient) {}
 
-    public getPosts(): Observable<Post[]> {
+    public getPages(): Observable<Page[]> {
         return this.http
-            .get<Post[]>(
-                'http://localhost/portfolio/wp-json/wp/v2/posts?_embed',
-                // 'http://localhost/portfolio/wp-json/wp/v2/projects?_embed',
-                {
-                    params: { per_page: '5' }
-                }
+            .get<Page[]>(
+                'http://localhost/portfolio/wp-json/wp/v2/pages?_embed'
             )
             .pipe(
                 // tap(data => console.log('All: ' + JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
-
-    public getPost(id: number): Observable<Post> {
+    public getPage(slug: string): Observable<Page> {
         // map(epics => epics.filter(epic => epic.id === id)[0]
-        return this.getPosts().pipe(
-            map(posts => {
-                return posts.filter(p => p.id === id)[0];
+        return this.getPages().pipe(
+            map(pages => {
+                return pages.filter(p => p.slug === slug)[0];
             })
         );
     }

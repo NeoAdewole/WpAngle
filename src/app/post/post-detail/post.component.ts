@@ -24,7 +24,6 @@ export class PostComponent implements OnInit {
 
     getPost(): void {
         const id = +this.route.snapshot.paramMap.get('id');
-        console.log(id);
         this.data = this.postService.getPost(id);
     }
 

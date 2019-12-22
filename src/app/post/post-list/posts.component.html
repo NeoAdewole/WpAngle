@@ -8,21 +8,20 @@
             <!-- show all posts here -->
             <div class="card-columns">
                 <div class="card" *ngFor="let post of posts">
+                  <img
+                    class="card-img-top"
+                      src="{{
+                          post.featured_image_src
+                              ? post.featured_image_src
+                              : '../../assets/Iconsocial.png'
+                      }}"
+                      class="card-img-top"
+                      alt="clear cut logo"
+                  />
                     <div class="card-body">
-                        <img
-                            src="{{
-                                post.featured_image_src
-                                    ? post.featured_image_src
-                                    : '../../assets/Iconsocial.png'
-                            }}"
-                            class="card-img-top"
-                            alt="clear cut logo"
-                        />
                         <h5 class="card-title">{{ post.title.rendered }}</h5>
                         <p>{{ post.slug }}</p>
-                        <p ng-bind-html="chooseHtmlElement() | trustedhtml">
-                            {{ post.excerpt.rendered }}
-                        </p>
+                        <p [innerHTML]="post.excerpt.rendered"></p>
                         <a class="btn btn-primary" routerLink="{{ post.id }}"
                             >Read More</a
                         >

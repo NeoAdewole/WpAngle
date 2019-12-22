@@ -1,0 +1,10 @@
+.content {
+    padding: 1em;
+    max-width: 90%;
+    font-family: 'century gothic', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    line-height: 1.5em;
+    > .title {
+        color: #1976d2;
+    }
+}
