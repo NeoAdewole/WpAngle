@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     wpAdmin: 'http://localhost/portfolio/wp-admin',
-    baseTokenUrl: 'http://localhost/portfolio/'
+    baseTokenUrl: 'http://localhost/portfolio/',
+    assetsUrl: '/assets/'
 };
 
 /*

@@ -7,9 +7,10 @@ import { WelcomeComponent } from './content/welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { PostModule } from './post/post.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './content/projects/projects.component';
 
 @NgModule({
-    declarations: [AppComponent, WelcomeComponent, LoginComponent],
+    declarations: [AppComponent, WelcomeComponent, LoginComponent, ProjectsComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

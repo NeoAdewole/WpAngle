@@ -1,6 +1,11 @@
 <div class="container" *ngIf="data | async as post">
     <section class="hero">
-        <img src="{{ post.featured_image_src }}" alt="" />
+        <img
+            src="{{
+                post.featured_image_src ? post.featured_image_src : defaultImage
+            }}"
+            alt=""
+        />
     </section>
     <section class="content">
         <h3 class="title blue primary">{{ post.title.rendered }}</h3>
