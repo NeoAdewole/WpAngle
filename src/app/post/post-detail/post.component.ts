@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../post.service';
 import { Post } from '../../model/post';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-post',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PostComponent implements OnInit {
     data: Observable<Post>;
+    defaultImage = environment.assetsUrl + 'Iconsocial.png';
 
     constructor(
         private router: Router,

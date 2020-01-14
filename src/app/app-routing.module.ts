@@ -5,6 +5,7 @@ import { PostComponent } from './post/post-detail/post.component';
 import { WelcomeComponent } from './content/welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProjectsComponent } from './projects/project-list/projects.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,14 @@ const routes: Routes = [
     {
         path: 'posts/:id',
         component: PostComponent
+    },
+    {
+        path: 'projects',
+        component: ProjectsComponent
+    },
+    {
+        path: 'projects/:id',
+        component: ProjectsComponent
     },
     {
         path: 'login',

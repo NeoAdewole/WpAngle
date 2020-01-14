@@ -1,65 +1,34 @@
-<div *ngIf="posts">
-    <div class="post-module">
-        <!-- <div class="float-right text-xs-right">
-        <Link class="btn btn-primary" to={'new-post'}>New Post</Link>
-      </div> -->
-        <h2 class="page-title">Recent Posts</h2>
-        <div class="posts-container grid-container">
-            <!-- show all posts here -->
-            <div class="card-columns">
-                <div class="card" *ngFor="let post of posts">
-                  <img
-                    class="card-img-top"
-                      src="{{
-                          post.featured_image_src
-                              ? post.featured_image_src
-                              : '../../assets/Iconsocial.png'
-                      }}"
-                      class="card-img-top"
-                      alt="clear cut logo"
-                  />
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.title.rendered }}</h5>
-                        <p>{{ post.slug }}</p>
-                        <p [innerHTML]="post.excerpt.rendered"></p>
-                        <a class="btn btn-primary" routerLink="{{ post.id }}"
-                            >Read More</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="postModalLong" class="modal" tabIndex="-1" role="dialog">
-            <p>MODALIS!!!</p>
-            <!-- <Post post/> -->
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">
-                            Save changes
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                        >
-                            Close
-                        </button>
+<div>
+    <app-loader *ngIf="loading"></app-loader>
+    <div *ngIf="posts">
+        <div class="post-module">
+            <h2 class="page-title">Recent Posts</h2>
+            <div class="posts-container grid-container">
+                <!-- show all posts here -->
+                <div class="card-columns">
+                    <div class="card" *ngFor="let post of posts">
+                        <img
+                            class="card-img-top"
+                            src="{{
+                                post.featured_image_src
+                                    ? post.featured_image_src
+                                    : defaultImage
+                            }}"
+                            class="card-img-top"
+                            alt="clear cut logo"
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ post.title.rendered }}
+                            </h5>
+                            <p>{{ post.slug }}</p>
+                            <p [innerHTML]="post.excerpt.rendered"></p>
+                            <a
+                                class="btn btn-primary"
+                                routerLink="{{ post.id }}"
+                                >Read More</a
+                            >
+                        </div>
                     </div>
                 </div>
             </div>

@@ -15,9 +15,8 @@ export class PostService {
         return this.http
             .get<Post[]>(
                 'http://localhost/portfolio/wp-json/wp/v2/posts?_embed',
-                // 'http://localhost/portfolio/wp-json/wp/v2/projects?_embed',
                 {
-                    params: { per_page: '5' }
+                    params: { per_page: '10' }
                 }
             )
             .pipe(

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from './authenticate.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -8,7 +9,7 @@ import { AuthenticateService } from './authenticate.service';
 })
 export class AppComponent {
     constructor(private authService: AuthenticateService) {}
-
+    icon = environment.assetsUrl + 'Iconsocial.png';
     title = 'wpangle';
 
     logout() {

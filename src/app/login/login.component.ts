@@ -27,7 +27,6 @@ export class LoginComponent {
     });
     onSubmit() {
         // TODO: Use EventEmitter with form value
-        console.warn(this.loginForm.value);
         const body = this.loginForm.value;
 
         this.authService.getToken(body).subscribe(_ => {

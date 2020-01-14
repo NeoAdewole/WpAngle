@@ -6,16 +6,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './content/welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { PostModule } from './post/post.module';
+import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-    declarations: [AppComponent, WelcomeComponent, LoginComponent],
+    declarations: [
+        AppComponent,
+        WelcomeComponent,
+        LoginComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         PostModule,
-        ReactiveFormsModule
+        ProjectsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

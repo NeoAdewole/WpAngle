@@ -1,0 +1,38 @@
+<div>
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="projects">
+      <div class="project-module">
+          <h2 class="page-title">Recent Projects</h2>
+          <div class="projects-container grid-container">
+              <!-- show all projects here -->
+              <div class="card-columns">
+                  <div class="card" *ngFor="let project of projects">
+                      <img
+                          class="card-img-top"
+                          src="{{
+                              project.featured_image_src
+                                  ? project.featured_image_src
+                                  : defaultImage
+                          }}"
+                          class="card-img-top"
+                          alt="clear cut logo"
+                      />
+                      <div class="card-body">
+                          <h5 class="card-title">
+                              {{ project.title.rendered }}
+                          </h5>
+                          <p>{{ project.slug }}</p>
+                          <p [innerHTML]="project.excerpt.rendered"></p>
+                          <a
+                              class="btn btn-primary"
+                              routerLink="{{ project.id }}"
+                              >Read More</a
+                          >
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

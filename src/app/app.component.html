@@ -9,7 +9,7 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-    <img width="40" alt="Clear Cut Logo" src="/portfolio/wp-content/themes/wpangle/dist/assets/Iconsocial.png" />
+    <img width="40" alt="Clear Cut Logo" src="{{ icon }}" />
     <span>Welcome</span>
     <ul class="menu-links">
         <li><a href="#">Home</a></li>
@@ -18,11 +18,18 @@
                 >Posts</a
             >
         </li>
+        <li>
+            <a
+                [routerLink]="['/projects']"
+                routerLinkActive="router-link-active"
+                >Projects</a
+            >
+        </li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Find us</a></li>
+        <!-- <li><a href="#">Find us</a></li> -->
         <li><a href="#">Contact</a></li>
         <li><a [routerLink]="['/login']">InApp Login</a></li>
-        <li><a href="http://localhost/portfolio/wp-admin">WP Login</a></li>
+        <!-- <li><a href="http://localhost/portfolio/wp-admin">WP Login</a></li> -->
         <li><a href="#" (click)="logout()">WP Logout</a></li>
     </ul>
     <div class="spacer"></div>
