@@ -1,4 +1,4 @@
-<div class="container" *ngIf="data | async as post">
+<div class="container" *ngIf="data | async as post; else loading">
     <section class="hero">
         <img
             src="{{
@@ -14,3 +14,7 @@
     </section>
     <button (click)="onBack()">Back</button>
 </div>
+
+<ng-template #loading>
+    <app-loader></app-loader>
+</ng-template>
