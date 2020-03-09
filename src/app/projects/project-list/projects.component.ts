@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../model/project';
 import { ProjectsService } from '../../projects.service';
 import { environment } from 'src/environments/environment';
+import { observable } from 'rxjs';
 
 @Component({
     selector: 'app-projects',
@@ -13,6 +14,7 @@ export class ProjectsComponent implements OnInit {
     errMsg: string;
     loading = true;
     defaultImage = environment.assetsUrl + 'Iconsocial.png';
+    // media = Project._embedded.wp:featuredmedia.source_url;
 
     constructor(private projectService: ProjectsService) {}
 
@@ -24,12 +26,12 @@ export class ProjectsComponent implements OnInit {
             next: projects => {
                 this.projects = projects;
                 this.loading = false;
-                console.log(this.errMsg);
+                console.log(this.projects);
             },
             error: errorMessage => {
-              this.errMsg = errorMessage;
-              this.loading = false;
-              console.log(this.errMsg);
+                this.errMsg = errorMessage;
+                this.loading = false;
+                console.log(this.errMsg);
             }
         });
     }

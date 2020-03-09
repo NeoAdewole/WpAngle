@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Project } from './model/project';
@@ -8,7 +8,10 @@ import { Project } from './model/project';
     providedIn: 'root'
 })
 export class ProjectsService {
+    baseUrl;
     constructor(private http: HttpClient) {}
+
+    // list: any = [];
 
     public getProjects(): Observable<Project[]> {
         return this.http
@@ -16,15 +19,27 @@ export class ProjectsService {
                 'http://localhost/portfolio/wp-json/wp/v2/projects?_embed'
             )
             .pipe(
-                // tap(data => console.log('All: ' + JSON.stringify(data))),
+                map(projects => {
+                    const newProjects: Project[] = [];
+                    projects.forEach((project: any) => {
+                        const newProject: Project = { ...project };
+                        newProject.featured_image_src =
+                            project._embedded['wp:featuredmedia'][0].source_url;
+                        // console.log(newProject);
+                        newProjects.push(newProject);
+                    });
+                    return newProjects;
+                }),
                 catchError(this.handleError)
             );
     }
-    public getProject(slug: string): Observable<Project> {
+
+    public getProject(id: number): Observable<Project> {
         // map(epics => epics.filter(epic => epic.id === id)[0]
         return this.getProjects().pipe(
             map(projects => {
-                return projects.filter(p => p.slug === slug)[0];
+                console.log('Project is: ' + id);
+                return projects.filter(p => p.id === id)[0];
             })
         );
     }

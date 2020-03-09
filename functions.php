@@ -39,8 +39,8 @@ wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/wp-conte
 // 	</ul>" ;
 // }
 
-// // This theme uses post thumbnails
-// add_theme_support( 'post-thumbnails' );
+// This theme uses post thumbnails | enables feature image using theme
+add_theme_support( 'post-thumbnails');
 
 // // Changing excerpt length
 // function new_excerpt_length($length) {
@@ -56,7 +56,11 @@ wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/wp-conte
 
 // Add various fields to the JSON output
 function wpangle_register_fields() {
-  // Add Author Name
+  $wpangle_types = array('post', 'comments', 'projects');
+  $wpangle_fields = array('author_name','featured_image_src','published_date');
+  // place functions in an array with corresponding rest fields as keys
+
+
   register_rest_field( 'post',
     'author_name',
     array(
@@ -66,7 +70,7 @@ function wpangle_register_fields() {
     )
   );
 	// Add Featured Image
-	register_rest_field( 'post',
+	register_rest_field( array( 'post', 'project' ),
 	  'featured_image_src',
 	  array(
       'get_callback'      => 'wpangle_get_image_src',
@@ -74,6 +78,15 @@ function wpangle_register_fields() {
       'schema'            => null
 		)
   );
+  // register_rest_field( 'project',
+	//   'featured_image_src',
+	//   array(
+  //     'get_callback'      => 'wpangle_get_image_src',
+  //     'update_callback'   => null,
+  //     'schema'            => null
+	// 	)
+  // );
+
   // Add Published Date
   register_rest_field( 'post',
     'published_date',

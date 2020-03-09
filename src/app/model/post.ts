@@ -10,6 +10,9 @@ export class Post {
     excerpt: WpContent;
     content: WpContent;
     featured_image_src: string;
+    published_date: Date;
+    date: Date;
+    modified: Date;
     authorName: string;
     author: WpContent;
     get safeContent() {
