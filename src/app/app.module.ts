@@ -11,11 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        WelcomeComponent,
-        LoginComponent
-    ],
+    declarations: [AppComponent, WelcomeComponent, LoginComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

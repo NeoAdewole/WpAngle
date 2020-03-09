@@ -1,0 +1,26 @@
+<div class="container" *ngIf="data | async as project; else loading">
+    <section class="hero">
+        <img
+            src="{{
+                project.featured_image_src
+                    ? project.featured_image_src
+                    : defaultImage
+            }}"
+            alt=""
+        />
+    </section>
+    <section class="content">
+        <span
+            >Published: {{ project.published_date }} | Last Edited:
+            {{ project.modified }}</span
+        >
+        <h3 class="title blue primary">{{ project.title.rendered }}</h3>
+        <span class="body"></span>
+        <p [innerHTML]="project.content.rendered"></p>
+    </section>
+    <button (click)="onBack()">Back</button>
+</div>
+
+<ng-template #loading>
+    <app-loader></app-loader>
+</ng-template>

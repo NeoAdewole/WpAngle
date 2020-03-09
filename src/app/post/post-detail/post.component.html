@@ -8,6 +8,10 @@
         />
     </section>
     <section class="content">
+        <span
+            >Published: {{ post.published_date }} || Last Edited:
+            {{ post.modified }}</span
+        >
         <h3 class="title blue primary">{{ post.title.rendered }}</h3>
         <span class="body" [innerHtml]="post.safeContent"></span>
         <p [innerHTML]="post.content.rendered"></p>
