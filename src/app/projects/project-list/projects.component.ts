@@ -26,12 +26,10 @@ export class ProjectsComponent implements OnInit {
             next: projects => {
                 this.projects = projects;
                 this.loading = false;
-                console.log(this.projects);
             },
             error: errorMessage => {
                 this.errMsg = errorMessage;
                 this.loading = false;
-                console.log(this.errMsg);
             }
         });
     }
