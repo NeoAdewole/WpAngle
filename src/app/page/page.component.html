@@ -1,16 +1,12 @@
-<app-page *ngFor="let page of (pages$ | async)">
-
-
 <!-- <ng-container *ngIf="pages$ | async as page; else loading"> -->
-  <section>
+  <section *ngIf="page$ | async as singlePage; else loading">
     <p>page works!</p>
       <span>
-        {{page.id}}
-        {{page.title}}
+        {{singlePage.id}}
+        {{singlePage.title.rendered}}
       </span>
     </section>
 <!-- </ng-container> -->
-</app-page>
 
 <ng-template #loading>
   <app-loader></app-loader>

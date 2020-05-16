@@ -11,19 +11,19 @@ import { JsonPipe } from '@angular/common';
   selector: 'app-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageComponent implements OnInit {
 
   // id: number;
   errMsg: string;
   loading = true;
-  id = parseInt(this.route.snapshot.paramMap.get('id'));
+  id = 0;
 
-  page$: Observable<Page>
+  page$: Observable<Page>;
 
   // data = [];
-  pages$ = this.pageService.pages$;
+  // pages$ = this.pageService.pages$;
   // page = this.pageService.getPage(this.id).subscribe();
 
   // defaultImage = environment.assetsUrl + 'Iconsocial.png';
@@ -35,60 +35,7 @@ export class PageComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-      // this.pageService.getPages();
-      this.route.url
-      .subscribe(url => console.log('The URL changed to: ' + url + " Snapped as: " + this.route.snapshot.paramMap.get('id')));
-    // }
-
-    // this.selectPage();
-      // return this.pageService.getPage()
-
-      console.log(this.pageService.pages$)
-
-      // this.page$ = this.pageService.getPage(this.id);
-
-      // this.pageService.getPage().pipe(
-      //   take(1),
-      //   distinctUntilChanged(),
-      //   // tap(data => {
-      //   //   console.log(data)
-      //   // }),
-      //   mergeMap(data => data),
-      //   filter(data => data.id === this.id
-      //     // console.log("Filtered: " + data);
-      //   ),
-      //   tap(data => {console.log('Page is: ' + JSON.stringify(data))}),
-      //   // catchError(this.handleError),
-      //   // map(page => {return page})
-
-      //   // map(selected => {
-      //   //   console.log(selected)
-      //   //   return selected
-      //   // }),
-      //   // tap(page => {console.log("Last Service Tap: " + page)}),
-      // )
-
-      // this.page.subscribe(
-      //     {
-      //       complete: () => {
-      //         console.log("Done!")
-      //       },
-      //       next: selectedPage => {
-      //         JSON.stringify("selected: " + selectedPage);
-      //       },
-      //       error: errorMessage => {
-      //         this.errMsg = errorMessage;
-      //         this.loading = false;
-      //       }
-      //     }
-      //   )
+      this.id = +this.route.snapshot.paramMap.get('id');
+      this.page$ = this.pageService.getPage(this.id);
     }
-
-  selectPage() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    // this.page = this.pageService.getPage(id);
-    // this.page$ = this.pageService.getPage(this.id);
-    // console.log(this.page$)
-  }
-
 }
