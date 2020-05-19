@@ -1,11 +1,15 @@
-<!-- <ng-container *ngIf="pages$ | async as page; else loading"> -->
-  <section *ngIf="page$ | async as singlePage; else loading">
-    <p>page works!</p>
-      <span>
-        {{singlePage.id}}
-        {{singlePage.title.rendered}}
-      </span>
-    </section>
+<section *ngIf="page$ | async as singlePage; else loading">
+  <span>
+    <div><h2 [innerHTML]="singlePage.id">-</h2> <h2 [innerHTML]="singlePage.title.rendered"></h2>
+    </div>
+    <div>
+      <h4>{{singlePage.slug}} - {{singlePage.date}}</h4>
+      <p><em>Published: {{singlePage.date}}, Last modified: {{singlePage.modified}} by {{singlePage._embedded.author[0].name}}</em></p>
+      <br>
+    </div>
+    <div [innerHTML]="singlePage.content.rendered"></div>
+  </span>
+</section>
 <!-- </ng-container> -->
 
 <ng-template #loading>

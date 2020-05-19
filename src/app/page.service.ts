@@ -6,6 +6,7 @@ import { filter, map, catchError, tap, take, mergeMap } from 'rxjs/operators';
 
 import { Page } from './model/page';
 import { environment } from 'src/environments/environment';
+import { WpContent } from './model/wp-content';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PageService {
 
   getPageList(): Observable<Page[]> {
     return this.http.get <Page[]>(
-      environment.baseTokenUrl+'wp-json/wp/v2/pages'
+      environment.baseTokenUrl+'wp-json/wp/v2/pages?_embed'
       //'http://localhost/portfolio/wp-json/wp/v2/pages?_embed'
       )
     .pipe(
@@ -25,14 +26,13 @@ export class PageService {
             id: page.id,
             slug: page.slug,
             date: page.date,
-            modified: page.modified
+            modified: page.modified,
+            title: page.title,
+            // content: page.content,
+            authorName: page.authorName,
+            excerpt: page.excerpt,
             // link?: page.link,
-            // slug?: page.slug,
-            // title?: page.rendered.title,
-            // excerpt?: page.rendered.excerpt,
-            // content?: page.rendered.excerpt,
             // featured_image_src?: page.rendered.string,
-            // authorName?: string,
             // author?: page._embeded.author[0]
           }) as Page)
         ),
@@ -49,7 +49,6 @@ export class PageService {
         return pageList.find(p => p.id === id);
       })
     );
-
     return singlePage;
   }
 
