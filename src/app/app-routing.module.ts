@@ -27,7 +27,11 @@ const routes: Routes = [
         component: ProjectComponent
     },
     {
-        path: 'page/:id',
+      path: 'page/:id',
+      component: PageComponent
+    },
+    {
+        path: 'projects/:slug',
         component: PageComponent
     },
     {

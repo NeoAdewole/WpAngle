@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PageService } from '../page.service';
 import { Page } from '../model/page';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-page',
@@ -34,21 +33,22 @@ export class PageComponent implements OnInit  {
     }
 
     ngOnInit() {
-      this.page$ = this.selectPage(+this.id)
+      this.page$ = this.selectPage(this.id)
     }
 
     watchPageDetail() {
-      // set id parameter from route
+      // set id parameter from route wether search param is a string (slug) or number (id)
       this.route.params.subscribe(
         detail => {
-          this.id = +detail.id;
+          this.id = isNaN(+detail.id) ? detail.id : +detail.id
+          console.log("Detail: " + (this.id) + " is string? - " + (typeof(this.id) === "string") );
           return detail.id
         }
       );
     }
 
-    selectPage(id:number): Observable<Page> {
-      this.id = +id
+    selectPage(id:any): Observable<Page> {
+      this.id = id
       this.loading = false;
       return this.pageService.getPage(id);
     }

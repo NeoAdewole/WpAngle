@@ -41,12 +41,15 @@ export class PageService {
     );
   }
 
-  getPage(id:number) : Observable<Page> {
+  getPage(id:number|string) : Observable<Page> {
     let singlePage : Observable<Page> = null;
 
     singlePage = this.getPageList().pipe(
       map((pageList, index) => {
-        return pageList.find(p => p.id === id);
+        return pageList.find(p => {
+          return (typeof(id) === "string") ? p.slug === id : p.id === id
+          // p.id === id
+        });
       })
     );
     return singlePage;
