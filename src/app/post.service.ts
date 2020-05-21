@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { filter, map, catchError, tap } from 'rxjs/operators';
 import { Post } from './model/post';
 import { Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,8 @@ export class PostService {
     public getPosts(): Observable<Post[]> {
         return this.http
             .get<Post[]>(
-                'http://localhost/portfolio/wp-json/wp/v2/posts?_embed',
+
+                environment.baseTokenUrl+'wp-json/wp/v2/posts?_embed',
                 {
                     params: { per_page: '10' }
                 }

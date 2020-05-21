@@ -25,9 +25,23 @@
                 >Projects</a
             >
         </li>
-        <li><a href="#">About</a></li>
+        <li>
+            <a
+                [routerLink]="['/page/forthegram']"
+                routerLinkActive="router-link-active"
+                >Insta</a
+            >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/page/about']"
+            routerLinkActive="router-link-active"
+          >About</a></li>
         <!-- <li><a href="#">Find us</a></li> -->
-        <li><a href="#">Contact</a></li>
+        <li><a
+          [routerLink]="['/page/contact']"
+          routerLinkActive="router-link-active"
+          >Contact</a></li>
         <li><a [routerLink]="['/login']">InApp Login</a></li>
         <!-- <li><a href="http://localhost/portfolio/wp-admin">WP Login</a></li> -->
         <li><a href="#" (click)="logout()">WP Logout</a></li>

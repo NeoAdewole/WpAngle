@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProjectsComponent } from './projects/project-list/projects.component';
 import { ProjectComponent } from './projects/project-detail/project.component';
+import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
     {
@@ -24,6 +25,14 @@ const routes: Routes = [
     {
         path: 'projects/:id',
         component: ProjectComponent
+    },
+    {
+      path: 'page/:id',
+      component: PageComponent
+    },
+    {
+        path: 'projects/:slug',
+        component: PageComponent
     },
     {
         path: 'login',

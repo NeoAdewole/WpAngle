@@ -9,6 +9,7 @@ import { PostModule } from './post/post.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageModule } from './page/page.module';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, LoginComponent],
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpClientModule,
         PostModule,
         ProjectsModule,
+        PageModule,
         ReactiveFormsModule,
         BrowserAnimationsModule
     ],
