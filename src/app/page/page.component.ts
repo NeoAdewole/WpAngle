@@ -41,10 +41,8 @@ export class PageComponent implements OnInit  {
       this.route.params.subscribe(
         detail => {
           this.id = isNaN(+detail.id) ? detail.id : +detail.id
-          console.log("Detail: " + (this.id) + " is string? - " + (typeof(this.id) === "string") );
           return detail.id
-        }
-      );
+        });
     }
 
     selectPage(id:any): Observable<Page> {

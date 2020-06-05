@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+// import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { filter, map, catchError, tap, take, mergeMap } from 'rxjs/operators';
@@ -50,19 +50,21 @@ export class PageService {
           return (typeof(id) === "string") ? p.slug === id : p.id === id
           // p.id === id
         });
-      })
+      }),
+      tap(data => console.log('Selected Page: ' + JSON.stringify(data)))
     );
+    tap
     return singlePage;
   }
 
   private handleError(err: HttpErrorResponse) {
-      let errorMessage = '';
-      if (err.error instanceof ErrorEvent) {
-          errorMessage = `An error occurred: ${err.error.message}`;
-      } else {
-          errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-      }
-      console.error(errorMessage);
-      return throwError(errorMessage);
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+        errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+        errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

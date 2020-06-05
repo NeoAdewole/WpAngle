@@ -5,7 +5,7 @@
     <em>Published: {{singlePage.date}}, Last modified: {{singlePage.modified}} by {{singlePage._embedded.author[0].name}}</em>
     <hr>
     <br>
-    <div  [innerHTML]="singlePage.content.rendered"></div>
+    <div  [innerHTML]="singlePage.content.rendered">{{singlePage.content.rendered}}</div>
   </div>
 </section>
 <!-- </ng-container> -->
