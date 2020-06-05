@@ -14,10 +14,7 @@ export class PageComponent implements OnInit  {
 
   errMsg: string;
   loading = true;
-
-  // initialize the pageId variable
   id = 0;
-  // initialize the page
   page$: Observable<Page>;
 
   constructor(

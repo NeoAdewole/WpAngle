@@ -3,8 +3,7 @@
     <h2 class="title blue primary">{{singlePage.title.rendered}}</h2>
     <br>
     <em>Published: {{singlePage.date}}, Last modified: {{singlePage.modified}} by {{singlePage._embedded.author[0].name}}</em>
-    <hr>
-    <br>
+    <hr><br>
     <div  [innerHTML]="singlePage.content.rendered">{{singlePage.content.rendered}}</div>
   </div>
 </section>

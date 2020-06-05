@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { filter, map, catchError, tap, take, mergeMap } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 
 import { Page } from './model/page';
 import { environment } from 'src/environments/environment';
