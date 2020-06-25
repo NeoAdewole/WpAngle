@@ -2,10 +2,13 @@
   <div class="content">
     <h2 class="title blue primary">{{singlePage.title.rendered}}</h2>
     <br>
-    <em>Published: {{singlePage.date}}, Last modified: {{singlePage.modified}} by {{singlePage._embedded.author[0].name}}</em>
+    <em>Published: {{singlePage.date}}
+      , Last modified: {{singlePage.modified}}
+      by {{singlePage._embedded.author[0].name}}
+    </em>
     <hr>
     <br>
-    <div  [innerHTML]="singlePage.content.rendered"></div>
+    <div [innerHTML]="singlePage.content.rendered"></div>
   </div>
 </section>
 <!-- </ng-container> -->

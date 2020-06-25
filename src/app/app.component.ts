@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent {
     constructor(private authService: AuthenticateService) {}
-    icon = environment.assetsUrl + 'Iconsocial.png';
+    icon = environment.baseTokenUrl + environment.assetsUrl + 'Iconsocial.png';
+    // icon = 'src/assets/Iconsocial.png';
     title = 'wpangle';
 
     logout() {

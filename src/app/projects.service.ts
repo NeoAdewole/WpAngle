@@ -3,12 +3,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Project } from './model/project';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProjectsService {
     baseUrl;
+    defaultImage = environment.baseTokenUrl + environment.assetsUrl + 'Iconsocial.png';
     constructor(private http: HttpClient) {}
 
     // list: any = [];
@@ -24,7 +26,7 @@ export class ProjectsService {
                     projects.forEach((project: any) => {
                         const newProject: Project = { ...project };
                         newProject.featured_image_src =
-                            project._embedded['wp:featuredmedia'][0].source_url;
+                            project._embedded['wp:featuredmedia'][0].source_url || this.defaultImage;
                         // console.log(newProject);
                         newProjects.push(newProject);
                     });
@@ -48,6 +50,7 @@ export class ProjectsService {
         let errorMessage = '';
         if (err.error instanceof ErrorEvent) {
             errorMessage = `An error occurred: ${err.error.message}`;
+            console.log(errorMessage);
         } else {
             errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
         }

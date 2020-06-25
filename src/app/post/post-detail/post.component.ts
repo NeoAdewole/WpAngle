@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PostComponent implements OnInit {
     data: Observable<Post>;
-    defaultImage = environment.assetsUrl + 'Iconsocial.png';
+    defaultImage = environment.baseTokenUrl + environment.assetsUrl + 'Iconsocial.png';
 
     constructor(
         private router: Router,

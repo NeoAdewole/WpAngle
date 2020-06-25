@@ -31,7 +31,7 @@ wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/wp-conte
 // // Solves 'wp-admin visual editor not appearing'
 //   // define('CONCATENATE_SCRIPTS', false);
 
-// // add_action('wp_enqueue_scripts', 'wpangle-script');
+// add_action('wp_enqueue_scripts', 'wpangle-script');
 
 // function default_expanded_footer() {
 // 	echo "<ul class='nav cols four'>

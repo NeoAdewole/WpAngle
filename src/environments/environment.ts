@@ -4,11 +4,11 @@
 
 export const environment = {
     production: false,
-    wpAdmin: 'http://localhost/portfolio/wp-admin',
-    baseTokenUrl: 'http://localhost/portfolio/',
+    wpAdmin: 'https://localhost/portfolio/wp-admin',
+    baseTokenUrl: 'https://localhost/portfolio/',
     //  baseTokenUrl: 'http://niyiadewole.ca/',
 
-    assetsUrl: '/assets/'
+    assetsUrl: 'wp-content/themes/wpangle/dist/assets/'
 };
 
 /*
