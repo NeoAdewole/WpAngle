@@ -8,15 +8,12 @@
               <div class="card-columns">
                   <div class="card" *ngFor="let project of projects">
                       <img
-                          class="card-img-top"
-                          src="{{
-                              project.featured_image_src
-                                  ? project.featured_image_src
-                                  : defaultImage
-                          }}"
-                          class="card-img-top"
-                          alt="clear cut logo"
+                        class="card-img-top"
+                        src="{{ project.featured_image_src }}"
+                        alt="clear cut logo"
+                        imgFallback
                       />
+                      <img imgFallback />
                       <div class="card-body">
                           <h5 class="card-title">
                               {{ project.title.rendered }}
@@ -24,9 +21,9 @@
                           <p>{{ project.slug }}</p>
                           <p [innerHTML]="project.excerpt.rendered"></p>
                           <a
-                              class="btn btn-primary"
-                              routerLink="{{ project.id }}"
-                              >Read More</a
+                            class="btn btn-primary"
+                            routerLink="{{ project.id }}"
+                            >Read More</a
                           >
                       </div>
                   </div>

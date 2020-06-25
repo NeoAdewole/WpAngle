@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Post } from '../../model/post';
 import { PostService } from 'src/app/post.service';
 import { environment } from 'src/environments/environment';
@@ -13,7 +12,7 @@ export class PostsComponent implements OnInit {
     posts: Post[] = [];
     errMsg: string;
     loading = true;
-    defaultImage = environment.assetsUrl + 'Iconsocial.png';
+    defaultImage = environment.baseTokenUrl + environment.assetsUrl + 'Iconsocial.png';
 
     constructor(private postService: PostService) {}
 
