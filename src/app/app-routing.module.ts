@@ -20,7 +20,8 @@ const routes: Routes = [
     },
     {
         path: 'projects',
-        component: ProjectsComponent
+        component: ProjectsComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'projects/:id',
@@ -40,8 +41,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        component: WelcomeComponent,
-        canActivate: [AuthGuard]
+        component: WelcomeComponent
     }
 ];
 

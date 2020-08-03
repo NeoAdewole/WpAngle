@@ -37,7 +37,6 @@ export class ProjectsService {
     }
 
     public getProject(id: number): Observable<Project> {
-        // map(epics => epics.filter(epic => epic.id === id)[0]
         return this.getProjects().pipe(
             map(projects => {
                 console.log('Project is: ' + id);
