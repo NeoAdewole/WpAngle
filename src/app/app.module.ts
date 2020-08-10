@@ -10,18 +10,21 @@ import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageModule } from './page/page.module';
+import { MatSidenavModule, MatIconModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, LoginComponent],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        PostModule,
-        ProjectsModule,
-        PageModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      PostModule,
+      ProjectsModule,
+      PageModule,
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      MatSidenavModule, MatIconModule,
+      MatButtonModule
     ],
     providers: [],
     bootstrap: [AppComponent]
