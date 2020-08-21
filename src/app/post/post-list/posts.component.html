@@ -3,7 +3,7 @@
     <div *ngIf="posts">
         <div class="post-module">
             <h2 class="page-title">Recent Posts</h2>
-            <div class="posts-container grid-container">
+            <div class="posts-container grid-container card-deck">
                 <!-- show all posts here -->
                 <div class="card-columns">
                   <div class="card" *ngFor="let post of posts">

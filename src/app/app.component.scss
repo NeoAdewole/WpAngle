@@ -1,7 +1,7 @@
 .toolbar {
-    height: 60px;
-    margin: -8px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #1976d2;
     color: white;
@@ -27,7 +27,6 @@
     > li {
         display: inline-block;
         padding: 1rem;
-        margin: 1rem;
         > a {
             color: white;
         }
@@ -39,10 +38,35 @@ ul.menu-links {
 }
 
 .content {
-    display: flex;
-    margin: 2em auto;
-    padding: 0 2em;
-    max-width: 90%;
-    flex-direction: column;
-    align-items: center;
+  margin: 2em auto;
+  padding: 0 2em;
+  max-width: 90%;
+  align-items: center;
+}
+
+
+.pull-right {
+  right: 0;
+  position: relative;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* ================== RESPONSIVE STYLES ================== */
+
+@media only screen and (max-width: 960px) {
+  body {
+    background-color: lightblue;
+  }
+
+  ul.menu-links {
+    display: none;
+  }
+  .mobile-menu {
+    display: inline-flex;
+  }
+
 }

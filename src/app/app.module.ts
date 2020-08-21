@@ -10,18 +10,26 @@ import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageModule } from './page/page.module';
+import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
+import {SharedModule} from './shared/shared.module';
+// import { SideNavComponent } from './content/side-nav/side-nav.component';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, LoginComponent],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        PostModule,
-        ProjectsModule,
-        PageModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      PostModule,
+      ProjectsModule,
+      PageModule,
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      MatSidenavModule,
+      MatIconModule,
+      MatButtonModule,
+      MatListModule,
+      SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]
