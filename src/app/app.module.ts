@@ -10,7 +10,9 @@ import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageModule } from './page/page.module';
-import { MatSidenavModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
+import {SharedModule} from './shared/shared.module';
+// import { SideNavComponent } from './content/side-nav/side-nav.component';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, LoginComponent],
@@ -23,8 +25,11 @@ import { MatSidenavModule, MatIconModule, MatButtonModule } from '@angular/mater
       PageModule,
       ReactiveFormsModule,
       BrowserAnimationsModule,
-      MatSidenavModule, MatIconModule,
-      MatButtonModule
+      MatSidenavModule,
+      MatIconModule,
+      MatButtonModule,
+      MatListModule,
+      SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]

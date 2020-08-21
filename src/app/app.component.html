@@ -9,38 +9,38 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
+  <span>
     <img width="40" alt="Clear Cut Logo" src="{{ icon }}" />
-    <span>Welcome</span>
-    <ul class="menu-links">
-        <li><a href="#">Home</a></li>
-        <li>
-            <a [routerLink]="['/posts']" routerLinkActive="router-link-active"
-                >Posts</a
-            >
-        </li>
-        <li>
-            <a
-                [routerLink]="['/projects']"
-                routerLinkActive="router-link-active"
-                >Projects</a
-            >
-        </li>
-        <li>
-            <a
-                [routerLink]="['/page/forthegram']"
-                routerLinkActive="router-link-active"
-                >Insta</a
-            >
-        </li>
-        <li>
-          <a
-            [routerLink]="['/page/about']"
-            routerLinkActive="router-link-active"
-          >About</a></li>
-        <li><a [routerLink]="['/login']">Login</a></li>
-        <li><a href="#" (click)="logout()">Logout</a></li>
-    </ul>
-    <div class="spacer"></div>
+    Welcome
+  </span>
+  <!-- <button mat-button (click)="sidenav.toggle()">Toggle</button> -->
+
+  <ul class="menu-links">
+    <li><a href="#">Home</a></li>
+    <li>
+      <a [routerLink]="['/posts']" routerLinkActive="router-link-active"
+      >Posts</a
+      >
+    </li>
+    <li>
+      <a
+      [routerLink]="['/projects']"
+      routerLinkActive="router-link-active"
+      >Projects</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/page/forthegram']" routerLinkActive="router-link-active">Insta</a>
+    </li>
+    <li>
+      <a [routerLink]="['/page/about']" routerLinkActive="router-link-active">About</a>
+    </li>
+    <li><a [routerLink]="['/login']">Login</a></li>
+    <li><a href="#" (click)="logout()">Logout</a></li>
+  </ul>
+
+  <div class="spacer"></div>
+  <div class="pull-right">
     <a
         aria-label="Angular on twitter"
         target="_blank"
@@ -49,32 +49,65 @@
         title="Twitter"
     >
         <svg
-            id="twitter-logo"
-            height="24"
-            data-name="Logo — FIXED"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 400 400"
+          id="twitter-logo"
+          height="24"
+          data-name="Logo — FIXED"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 400"
         >
-            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-
-                    .cls-2 {
-                        fill: #ffffff;
-                    }
-                </style>
-            </defs>
-            <rect class="cls-1" width="400" height="400" />
-            <path
-                class="cls-2"
-                d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
-            />
-        </svg>
+          <defs>
+              <style>
+                  .cls-1 {
+                      fill: none;
+                  }
+                  .cls-2 {
+                      fill: #ffffff;
+                  }
+              </style>
+          </defs>
+          <rect class="cls-1" width="400" height="400" />
+          <path
+              class="cls-2"
+              d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
+          />
+      </svg>
     </a>
+    <span class="mobile-menu">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow.sm="true" fxShow.gt-sm="false">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </span>
+  </div>
+
+
 </div>
 
-<div class="content" role="main">
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="sidebar" position="end">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/posts'"> Posts </a>
+      <a mat-list-item [routerLink]="'/projects'"> Projects </a>
+      <a mat-list-item [routerLink]="'/page/forthegram'"> Grams </a>
+      <a mat-list-item [routerLink]="'/page/about'"> About </a>
+      <a mat-list-item [routerLink]="'/login'"> Login </a>
+      <a mat-list-item (click)="logout()"> Logout </a>
+      <a mat-list-item (click)="sidenav.toggle()">
+        <button mat-icon-button fxShow.sm="true" fxShow.gt-sm="false">
+          <mat-icon>close</mat-icon>
+        </button>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <div role="main">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+<!-- <div class="content" role="main">
+  <app-side-nav role="navigation" class="mobile-menu">
+  </app-side-nav>
+  <router-outlet></router-outlet>
+</div> -->
+
