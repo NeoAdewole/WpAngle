@@ -82,9 +82,10 @@
 
 </div>
 
-<mat-sidenav-container>
+<mat-sidenav-container class="container">
   <mat-sidenav #sidenav class="sidebar" position="end">
     <mat-nav-list>
+      <a mat-list-item [routerLink]="''">Home</a>
       <a mat-list-item [routerLink]="'/posts'"> Posts </a>
       <a mat-list-item [routerLink]="'/projects'"> Projects </a>
       <a mat-list-item [routerLink]="'/page/forthegram'"> Grams </a>

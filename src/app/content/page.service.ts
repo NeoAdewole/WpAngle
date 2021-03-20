@@ -12,22 +12,22 @@ export class PageService {
     constructor(private http: HttpClient) {}
 
     public getPages(): Observable<Page[]> {
-        return this.http
-            .get<Page[]>(
-                'http://localhost/portfolio/wp-json/wp/v2/pages?_embed'
-            )
-            .pipe(
-                // tap(data => console.log('All: ' + JSON.stringify(data))),
-                catchError(this.handleError)
-            );
+      return this.http
+        .get<Page[]>(
+          'http://localhost/portfolio/wp-json/wp/v2/pages'
+        )
+        .pipe(
+          // tap(data => console.log('All: ' + JSON.stringify(data))),
+          catchError(this.handleError)
+        );
     }
     public getPage(slug: string): Observable<Page> {
-        // map(epics => epics.filter(epic => epic.id === id)[0]
-        return this.getPages().pipe(
-            map(pages => {
-                return pages.filter(p => p.slug === slug)[0];
-            })
-        );
+      // map(epics => epics.filter(epic => epic.id === id)[0]
+      return this.getPages().pipe(
+        map(pages => {
+          return pages.filter(p => p.slug === slug)[0];
+        })
+      );
     }
 
     private handleError(err: HttpErrorResponse) {

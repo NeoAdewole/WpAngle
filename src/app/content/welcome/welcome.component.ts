@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PageService } from '../page.service';
-import { Page } from 'src/app/model/page';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PageService } from '../../page.service';
+import { Page } from '../../model/page';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-welcome',
@@ -12,17 +14,12 @@ export class WelcomeComponent implements OnInit {
     errMsg: any;
     pageName = 'home';
 
-    constructor(private pageService: PageService) {}
+    page$: Observable<Page>;
+    constructor(
+      private pageService: PageService
+    ) {}
 
     ngOnInit() {
-        this.pageService.getPage(this.pageName).subscribe({
-            next: page => {
-                this.page = page;
-            },
-            error: errorMessage => {
-                this.errMsg = errorMessage;
-                console.log(this.errMsg);
-            }
-        });
+      this.page$ = this.pageService.getPage(this.pageName);
     }
 }

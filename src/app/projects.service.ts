@@ -18,7 +18,8 @@ export class ProjectsService {
     public getProjects(): Observable<Project[]> {
         return this.http
             .get<Project[]>(
-                'http://localhost/portfolio/wp-json/wp/v2/projects?_embed'
+                environment.baseTokenUrl+'wp-json/wp/v2/projects?_embed'
+                // 'http://localhost/portfolio/wp-json/wp/v2/projects?_embed'
             )
             .pipe(
                 map(projects => {
