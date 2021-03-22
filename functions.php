@@ -2,7 +2,10 @@
 
 // Your php code goes here
 
-wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/wp-content/themes/wpangle/dist/*' , array(), null, true );
+function wpangle_build(){
+  wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/wp-content/themes/wpangle/dist/*' , array(), null, true );
+}
+add_action('wp_enqueue_scripts', 'wpangle_build');
 // wp_enqueue_script( 'wpangle-script', get_stylesheet_directory_uri() . '/dist/*' , array(), null, true );
 
 // wp_enqueue_script( 'r_my_app_runtime', "/wp-content/themes/wpangle/dist/wpangle/*.js", null, true );
