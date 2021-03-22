@@ -10,7 +10,10 @@ import { ProjectsModule } from './projects/projects.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageModule } from './page/page.module';
-import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
+import { MatSidenavModule} from '@angular/material/Sidenav';
+import { MatIconModule } from '@angular/material/Icon';
+import { MatButtonModule } from '@angular/material/Button';
+import { MatListModule } from '@angular/material/List';
 import {SharedModule} from './shared/shared.module';
 // import { SideNavComponent } from './content/side-nav/side-nav.component';
 
