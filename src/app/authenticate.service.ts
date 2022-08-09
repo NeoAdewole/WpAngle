@@ -7,7 +7,7 @@ import {
 // import { filter, map, catchError, tap } from 'rxjs/operators';
 // import { Post } from './model/post';
 import { Observable, throwError } from 'rxjs';
-import { catchError, take, tap } from 'rxjs/operators';
+import { catchError, map, take, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -32,11 +32,13 @@ export class AuthenticateService {
             )
             .pipe(
                 take(1),
-                tap(data => {
+                map(data => {
                     localStorage.setItem(
                         this.userCredential,
                         JSON.stringify(data)
                     );
+                    // return console.log(`Login succuccessful for ${localStorage.getItem(this.userCredential)}`);
+                    return this.toastr.success(`Login succuccessful for ${localStorage.getItem(this.userCredential['username'])}`);
                 }),
                 catchError(this.handleError.bind(this))
             );

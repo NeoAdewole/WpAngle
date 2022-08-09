@@ -17,18 +17,18 @@ export class AuthGuard implements CanActivate {
         private authService: AuthenticateService,
         private router: Router
     ) {}
-    canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
-    ):
+    canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot):
         | Observable<boolean | UrlTree>
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-        const loggedIn = this.authService.isUserLoggedIn();
-        if (!loggedIn) {
-            this.router.navigateByUrl('/login');
-        }
-        return loggedIn;
+            // get guarded url to use for redirects
+            let url: string = state.url;
+            const loggedIn = this.authService.isUserLoggedIn();
+            if (!loggedIn) {
+                this.router.navigate(['/login'],{queryParams:{'redirectURL':state.url}});
+                return false;
+            }
+        return true;
     }
 }
