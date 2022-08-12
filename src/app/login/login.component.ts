@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import {
     HttpClient,
     HttpErrorResponse,
@@ -25,9 +25,9 @@ export class LoginComponent {
         private authService: AuthenticateService,
         private router: Router
     ) {}
-    loginForm = new FormGroup({
-        username: new FormControl(''),
-        password: new FormControl('')
+    loginForm = new UntypedFormGroup({
+        username: new UntypedFormControl(''),
+        password: new UntypedFormControl('')
     });
 
     displayStyle = "none";
