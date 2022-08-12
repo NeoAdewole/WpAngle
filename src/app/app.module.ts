@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/Icon';
 import { MatButtonModule } from '@angular/material/Button';
 import { MatListModule } from '@angular/material/List';
 import {SharedModule} from './shared/shared.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // import { SideNavComponent } from './content/side-nav/side-nav.component';
 
 
@@ -38,7 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
       MatIconModule,
       MatButtonModule,
       MatListModule,
-      SharedModule
+      SharedModule,
+      NgbModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

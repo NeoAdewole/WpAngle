@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import {
     HttpClient,
@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+    @Input() loginMethod: 'login' | 'signup' = 'login';
     model: any = {};
     baseUrl;
     loading : boolean = true;
@@ -29,9 +30,19 @@ export class LoginComponent {
         password: new FormControl('')
     });
 
+    displayStyle = "none";
+
     ngOnInit() {
         // reset login status
         this.authService.logout();
+        this.displayStyle = "block";
+    }
+
+    openPopup() {
+        this.displayStyle = "block";
+    }
+    closePopup() {
+        this.displayStyle = "none";
     }
 
     onSubmit() {

@@ -16,7 +16,7 @@
         <span class="body" [innerHtml]="post.safeContent"></span>
         <p [innerHTML]="post.content.rendered"></p>
     </section>
-    <button (click)="onBack()">Back</button>
+    <button class="btn btn-primary" (click)="onBack()">Back</button>
 </div>
 
 <ng-template #loading>
