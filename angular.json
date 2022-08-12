@@ -25,7 +25,13 @@
                         "aot": false,
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": ["src/styles.scss", "./node_modules/bootstrap/dist/css/bootstrap.css"],
-                        "scripts": ["./node_modules/@popperjs/core/dist/umd/popper.min.js"]
+                        "scripts": ["./node_modules/@popperjs/core/dist/umd/popper.min.js"],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "buildOptimizer": false,
+                        "sourceMap": true,
+                        "optimization": false,
+                        "namedChunks": true
                     },
                     "configurations": {
                         "production": {
@@ -57,7 +63,8 @@
                                 }
                             ]
                         }
-                    }
+                    },
+                    "defaultConfiguration": ""
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
