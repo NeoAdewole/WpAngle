@@ -1,21 +1,77 @@
-<p>login works!</p>
+<div id="profile" class="modal modal-backdrop" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" *ngIf="loginMethod === 'login'">
+        <div class="modal-header">
+            <h5 class="modal-title">Login Form</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        formControlName="username"
+                        placeholder="Your Username"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        formControlName="password"
+                        placeholder="Your Password"
+                    />
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign In</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closePopup()" >Close</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-content" *ngIf="loginMethod === 'signup'">
+        <div class="modal-header">
+            <h5 class="modal-title">Login Form</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        formControlName="username"
+                        placeholder="Your Username"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        formControlName="password"
+                        placeholder="Your Password"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        formControlName="password"
+                        placeholder="Confirm Your Password"
+                    />
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign In</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closePopup()" >Close</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input
-            type="text"
-            formControlName="username"
-            placeholder="Your Username"
-        />
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input
-            type="password"
-            formControlName="password"
-            placeholder="Your Password"
-        />
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-</form>

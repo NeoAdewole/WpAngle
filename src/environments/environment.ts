@@ -4,8 +4,10 @@
 
 export const environment = {
     production: false,
-    wpAdmin: 'https://localhost/portfolio/wp-admin',
-    baseTokenUrl: 'https://localhost/portfolio/',
+    // wpAdmin: 'https://localhost/portfolio/wp-admin',
+    // baseTokenUrl: 'https://localhost/portfolio/',
+    wpAdmin: 'https://niyiadewole.local/portfolio/wp-admin',
+    baseTokenUrl: 'https://niyiadewole.local/',
     //  baseTokenUrl: 'http://niyiadewole.ca/',
 
     assetsUrl: 'wp-content/themes/wpangle/dist/assets/'
